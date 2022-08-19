@@ -1,0 +1,37 @@
+@Composable
+fun WeatherList(
+    city: String
+) {
+    val inputCity = remember {
+        mutableStateOf(city)
+    }
+    Column(
+        modifier = Modifier.fillMaxWidth().fillMaxSize()
+            .padding(10.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = stringResource(id = R.string.weather),
+        fontSize = 25.sp)
+        TextField(value = "",
+        onValueChange = {
+            newValue -> inputCity.value = newValue
+        },
+        placeholder = { Text(text = "Введите название города")},
+        keyboardOptions = KeyboardOptions(
+            capitalization = KeyboardCapitalization.None,
+            autoCorrect = true,
+            keyboardType = KeyboardType.Text
+        ),
+            textStyle = TextStyle(
+                color = Color.Black,
+                fontFamily = FontFamily.SansSerif
+            ),
+            maxLines = 1,
+            singleLine = true,
+            leadingIcon = {
+                Icon(Icons.Filled.Search,"text", tint = colorResource(id = androidx.appcompat.R.color.material_grey_50))
+            }
+        )
+    }
+}
