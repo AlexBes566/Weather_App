@@ -11,7 +11,7 @@ object DataProvider {
             weatherStatus = "Жарко"
         ),
         City(
-            city = "Тамбов",
+            city = "Рязань",
             temp = 25,
             maxTemp = 30,
             minTemp = 23,
