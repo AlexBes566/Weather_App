@@ -14,26 +14,20 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@Module
-@InstallIn(SingletonComponent::class)
+
 class RetrofitModule {
 
-    @Provides
-    @Singleton
+
     fun httpLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().apply {
             this.level = HttpLoggingInterceptor.Level.BODY
         }
 
-    @Provides
-    @Singleton
     fun httpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
             .build()
 
-    @Provides
-    @Singleton
     fun retrofit(httpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
             .client(httpClient)

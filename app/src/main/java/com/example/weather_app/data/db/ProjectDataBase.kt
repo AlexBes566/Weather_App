@@ -24,6 +24,7 @@ const val DB_VERSION = 1
     version = DB_VERSION,
     exportSchema = false
 )
+
 abstract class ProjectDataBase : RoomDatabase() {
 
     abstract val weatherDataBaseDao: WeatherDataBaseDao
@@ -31,7 +32,7 @@ abstract class ProjectDataBase : RoomDatabase() {
 
     companion object{
         @Volatile
-        private val INSTANCE: ProjectDataBase? = null
+        private var INSTANCE: ProjectDataBase? = null
 
         fun getInstance(context: Context): ProjectDataBase {
             synchronized(this) {

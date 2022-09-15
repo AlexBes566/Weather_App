@@ -25,9 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        CoroutineScope(Dispatchers.IO).launch {
-            api?.getForecast("Orsk", API_KEY)
-        }
         setContent {
             window.statusBarColor = ContextCompat.getColor(this, R.color.black)
             CitySearch()

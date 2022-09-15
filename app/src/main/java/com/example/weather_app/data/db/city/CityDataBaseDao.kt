@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CityDataBaseDao {
+
     @Query(
         """
         SELECT cities.id, cities.name AS city, states.name AS state
